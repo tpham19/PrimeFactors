@@ -1,20 +1,10 @@
 /*
-Prints all prime factors up to an integer.
+ * Prints all prime factors up to a positive integer.
 */
-#include <cstdio>;
-#include <cstdlib>;
+
 #include <iostream>;
 using namespace std;
 
-vector<int> factors(unsigned int num){
-    vector<int> factors;
-    for (int i=1;i<=num;++i){
-        if (num%i==0){
-            factors.push_back(i);
-        }
-    }
-    return factors;
-}
 
 bool isPrime(unsigned int num) {
 	if (num < 2) {
@@ -34,13 +24,13 @@ bool isPrime(unsigned int num) {
 }
 
 void findPrimeFactors(unsigned int num) {
-	vector<int> factors = factors(num);
-	for (unsigned int i = 0; i < factors.size(); i++) {
-		if (isPrime(i)) {
+	for (int i = 1; i <= num; i++) {
+		if (num % i == 0 && isPrime(i)) {
 			cout << i << " ";
 		}
 	}
 }
+
 
 int main() {
 	unsigned int num;
